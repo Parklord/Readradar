@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-radar-bg text-white font-sans antialiased selection:bg-accent-primary selection:text-white overflow-x-hidden;
+    transition: background-color 0.5s ease, color 0.3s ease;
+  }
+
+  /* Handle dynamic Book Mode state classes */
+  body.book-mode-active {
+    @apply bg-book-bg text-book-text font-serif;
+  }
+}
+
+@layer components {
+  /* Premium Glassmorphism Container */
+  .glass-panel {
+    @apply bg-radar-surface/70 backdrop-blur-md border border-radar-border/50 shadow-glass;
+  }
+  
+  body.book-mode-active .glass-panel {
+    @apply bg-book-surface/80 backdrop-blur-sm border border-book-border/60 shadow-none;
+  }
+
+  /* Glowing Interactive Borders */
+  .interactive-glow {
+    @apply transition-all duration-300 hover:border-accent-primary/50 hover:shadow-glow;
+  }
+}
+
+/* Custom Minimalist Scrollbar (Spotify/Discord Style) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B0B0C;
+}
+
+body.book-mode-active ::-webkit-scrollbar-track {
+  background: #F4EBE1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #26262B;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8B5CF6;
+}
